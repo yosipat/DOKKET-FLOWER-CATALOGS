@@ -29,7 +29,7 @@
 </head>
 
 <script>
-    var arr_content = ['M1', 'M2', 'fontproperties', 'textproperties', 'backgroundproperties', 'boxproperties']
+    var arr_content = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6']
     function go(content) {
 
         for (let i of arr_content) {
@@ -53,21 +53,21 @@
     const flower =
         [
             {
-                type: "ช่อดอกไม้",
-                amount: 6,
+                type: "ช่อดอกไม้ (ใหญ่)",
+                amount: 25,
                 name: "A",
                 menu: "M01",
                 list: [
                 ]
             },
-            // {
-            //     type: "GeeksforGeeks44",
-            //     amount: 0,
-            //     name: "B",
-            //     menu: "M02",
-            //     list: [
-            //     ]
-            // }
+            {
+                type: "ช่อดอกไม้ (เล็ก)",
+                amount: 11,
+                name: "B",
+                menu: "M02",
+                list: [
+                ]
+            }
         ]
         ;
 
@@ -141,7 +141,8 @@
 
                 <div>
                     <button id="btn_all" onclick="go('all')">ดูทั้งหมด</button>
-                    <button id="btn_M1" onclick="go('M1')">ช่อดอกไม้</button>
+                    <button id="btn_M1" onclick="go('M1')">ช่อดอกไม้ (ใหญ่)</button>
+                    <button id="btn_M2" onclick="go('M2')">ช่อดอกไม้ (เล็ก)</button>
                     <button id="btn_M2" onclick="go('M2')" disabled>มัมไทย-ต่างประเทศ</button>
                     <button id="btn_M3" onclick="go('M3')" disabled>เบญจมาศ</button>
                     <button id="btn_M4" onclick="go('M4')" disabled>คาร์เนชัน</button>
