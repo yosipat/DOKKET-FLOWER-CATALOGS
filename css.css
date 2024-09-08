@@ -71,6 +71,7 @@ header section {
 
 #menu button {
     background-color: #aabe88;
+    color: #5d684a;
     border: 0;
     border-radius: 15px;
     padding: 5px 20px 5px 20px;
@@ -88,7 +89,11 @@ article section {
 
 
 .bg-beige{
-    background-color:#f8eedc ;
+    background-color:white ;
+}
+
+section h3{
+    color: #556834;
 }
 
 /* .bg-beige h6{

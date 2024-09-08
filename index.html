@@ -98,11 +98,14 @@
             list.forEach(l => {
                 console.log(l.name);
                 myDiv += `<div class="col">
-                      <div class="card h-100 border-white">
+
+
+
+                      <div class="card h-100">
                         <img src="img/${l.img}" height="150" class="card-img-top object-fit-cover">
-                        <div class="card-body">
-                          <h6 class="card-title text-center m-0">${l.name}${i}</h6>
-                          
+                        <div class="card-body m-0 p-1">
+                          <p class="figure-caption m-0">
+                            ${l.name}${i}</p>
                         </div>
                       </div>
                     </div>`;
