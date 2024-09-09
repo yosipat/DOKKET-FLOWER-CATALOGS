@@ -29,7 +29,7 @@
 </head>
 
 <script>
-    var arr_content = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6']
+    var arr_content = ['M1', 'M2', 'M3']
     function go(content) {
 
         for (let i of arr_content) {
@@ -50,6 +50,7 @@
         }
     }
 
+    const folder = "flower/";
     const flower =
         [
             {
@@ -67,6 +68,43 @@
                 menu: "M02",
                 list: [
                 ]
+            },
+            {
+                type: "รายการดอกไม้",
+                amount: 0,
+                name: "C",
+                menu: "M03",
+                list: [
+                    { img: folder + "mom_1.jpg", desc: "มัมนอกเหลือง" },
+                    { img: folder + "mom_2.jpg", desc: "มัมนอกขาว" },
+                    { img: folder + "mom_3.jpg", desc: "มัมนอกชมพู" },
+                    { img: folder + "mom_4.jpg", desc: "มัมนอกทานตะวัน" },
+                    { img: folder + "mom_5.jpg", desc: "มัมนอกม่วงขิบขาว" },
+                    { img: folder + "mom_6.jpg", desc: "มัมนอกเขียว" },
+                    { img: folder + "car_1.jpg", desc: "คาร์เนชัน" },
+                    { img: folder + "car_2.jpg", desc: "คาร์เนชันสเปรย์" },
+                    { img: folder + "sun_1.jpg", desc: "ทานตะวัน" },
+                    { img: folder + "daisy_1.jpg", desc: "เดซี่" },
+                    { img: folder + "paper_1.jpg", desc: "ดอกกระดาษ" },
+                    { img: folder + "mickey_1.jpg", desc: "มิกกี้เมาส์" },
+                    { img: folder + "gipso_1.jpg", desc: "ยิปโซ" },
+                    { img: folder + "atter_1.jpg", desc: "แอตเตอร์" },
+                    { img: folder + "yer_1.jpg", desc: "เยอบีร่า" },
+                    { img: folder + "vac_1.jpg", desc: "แว็ค" },
+                    { img: folder + "hy_1.jpg", desc: "ไฮเดรนเยีย" },
+                    { img: folder + "lily_1.jpg", desc: "ลิลลี่" },
+                    { img: folder + "statis_1.jpg", desc: "สแตติสนอก" },
+                    { img: folder + "statis_2.jpg", desc: "สแตติสไทย" },
+                    { img: folder + "ly_1.jpg", desc: "ไลเซนทัส" },
+                    { img: folder + "sui_1.jpg", desc: "สุ่ยย้อมสี" },
+                    { img: folder + "spider_1.jpg", desc: "สไปเดอร์ชมพู" },
+                    { img: folder + "spider_2.jpg", desc: "สไปเดอร์เหลือง" },
+                    { img: folder + "spider_3.jpg", desc: "สไปเดอร์เขียว" },
+                    { img: folder + "cutter_1.jpg", desc: "คัตเตอร์" },
+                    { img: folder + "cutter_2.jpg", desc: "มากาเรท" },
+                    { img: folder + "rose_1.jpg", desc: "กุหลาบพวง" },
+                    { img: folder + "rose_2.jpg", desc: "กุหลาบเชียงใหม่" },
+                ]
             }
         ]
         ;
@@ -78,10 +116,9 @@
         flower.forEach(f => {
             console.log(f.type);
 
-            if (f.amount > 1) {
+            if (f.amount > 1 && (f.name == "A" || f.name == "B")) {
                 for (let a = 1; a <= f.amount; a++) {
                     f.list.push({
-                        "name": f.name,
                         "img": f.menu + "_" + a + ".jpg",
                         "desc": ""
                     });
@@ -98,17 +135,16 @@
             list.forEach(l => {
                 console.log(l.name);
                 myDiv += `<div class="col">
-
-
-
                       <div class="card h-100">
                         <img src="img/${l.img}" height="150" class="card-img-top object-fit-cover">
                         <div class="card-body m-0 p-1">
-                          <p class="figure-caption m-0">
-                            ${l.name}${i}</p>
-                        </div>
-                      </div>
-                    </div>`;
+                          <p class="figure-caption m-0">${f.name}${i}`;
+
+                if (f.name != "A" && f.name != "B") {
+                    myDiv += ` - ${l.desc}`;
+                }
+
+                myDiv += `</p></div></div></div>`;
                 i++;
             }) //<p class="card-text">${l.desc}</p>
 
@@ -130,7 +166,7 @@
                 <div class="pt-5">
                     <p style="color: #859569;"><i>- ชนิดและราคาของดอกไม้มีการเปลี่ยนแปลงตามฤดูกาล
                             สามารถติดต่อเพื่อสอบถามก่อนสั่งซื้อ -</i></p>
-                    
+
                 </div>
 
             </nav>
@@ -141,34 +177,28 @@
                     <button id="btn_all" onclick="go('all')">ดูทั้งหมด</button>
                     <button id="btn_M1" onclick="go('M1')">ช่อดอกไม้ (ใหญ่)</button>
                     <button id="btn_M2" onclick="go('M2')">ช่อดอกไม้ (เล็ก)</button>
-                    <button id="btn_M2" onclick="go('M2')" disabled>มัมไทย-ต่างประเทศ</button>
-                    <button id="btn_M3" onclick="go('M3')" disabled>เบญจมาศ</button>
+                    <button id="btn_M3" onclick="go('M3')">รายการดอกไม้</button>
+                    <!-- <button id="btn_M3" onclick="go('M3')" disabled>เบญจมาศ</button>
                     <button id="btn_M4" onclick="go('M4')" disabled>คาร์เนชัน</button>
                     <button id="btn_M5" onclick="go('M5')" disabled>กุหลาบ</button>
                     <button id="btn_M6" onclick="go('M6')" disabled>ดอกไม้แห้ง</button>
-                    <button id="btn_M7" onclick="go('M7')" disabled>ดอกตามฤดูกาล</button>
+                    <button id="btn_M7" onclick="go('M7')" disabled>ดอกตามฤดูกาล</button> -->
                 </div>
             </section>
         </header>
         <article>
-       <div id="show"></div>
 
-
-   
-           
-
-
-       
+            <div id="show"></div>
 
             <footer>
                 <section>
                     <cite id="cite1">ร้านดอกเกตุ ตลาดสี่มุมเมืองรังสิต<br><br>
                         <p><i>02-9950771 (เปิดตลอด 24 ชั่วโมง)<br> 081-9050182, 096-9932642, 081-9039750</i></p>
-                    <p><a class="btn btn-light btn-sm" href="https://www.facebook.com/dokket4?mibextid=LQQJ4d"><img
-                                src="facebook.png" width="15"></a>
-                        <a class="btn btn-light btn-sm" href="https://lin.ee/ZDrbQTo"><img src="line.png"
-                                width="15"></a>
-                    </p>
+                        <p><a class="btn btn-light btn-sm" href="https://www.facebook.com/dokket4?mibextid=LQQJ4d"><img
+                                    src="facebook.png" width="15"></a>
+                            <a class="btn btn-light btn-sm" href="https://lin.ee/ZDrbQTo"><img src="line.png"
+                                    width="15"></a>
+                        </p>
                     </cite>
                 </section>
             </footer>
@@ -176,10 +206,6 @@
 
 
     </main>
-
-    <script>
-        // document.getElementById("pat").innerHTML="patttttt";
-    </script>
 </body>
 
 </html>
